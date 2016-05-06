@@ -43,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }
+        int number1 = Integer.parseInt(mNumber1EditText.getText().toString());
+        int number2 = Integer.parseInt(mNumber2EditText.getText().toString());
         String operation = ((Button) v).getText().toString();
+        NativeLibrary nativeobject = new NativeLibrary();
+        int result = nativeobject.result(operation, number1, number2);
+        Toast.makeText(this,"Result is "+ result,Toast.LENGTH_LONG).show();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
